@@ -24,7 +24,6 @@
         <version>1.0-SNAPSHOT</version>
         <executions>
           <execution>
-            <phase>process-sources</phase>
             <goals>
               <goal>scan</goal>
             </goals>

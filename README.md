@@ -20,7 +20,6 @@ just add the following section to your _pom.xml_ file:
       <version>1.0-SNAPSHOT</version>
       <executions>
         <execution>
-          <phase>process-sources</phase>
           <goals>
             <goal>scan</goal>
           </goals>
