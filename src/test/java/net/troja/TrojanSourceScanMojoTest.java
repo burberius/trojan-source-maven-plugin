@@ -12,7 +12,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 class TrojanSourceScanMojoTest extends BaseMojoTest {
 
     @Test
-    void testSomething() throws Exception {
+    void testScan() throws Exception {
         File pom = new File("target/test-classes/project-to-test/");
         assertThat(pom).exists();
 

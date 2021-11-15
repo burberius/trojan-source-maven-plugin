@@ -18,6 +18,15 @@ just add the following section to your _pom.xml_ file:
       <groupId>net.troja</groupId>
       <artifactId>trojan-source-maven-plugin</artifactId>
       <version>1.0-SNAPSHOT</version>
+      <configuration>
+        <fileExtensions>
+          <param>mustache</param>
+        </fileExtensions>
+        <directories>
+          <param>templates</param>
+        </directories>
+        <scanTests>false</scanTests>
+      </configuration>
       <executions>
         <execution>
           <goals>
@@ -29,6 +38,19 @@ just add the following section to your _pom.xml_ file:
   </plugins>
 </build>
 ```
+
+## Configration
+### fileExtensions
+Extra file extensions can also be scanned, which is very useful for example the
+templates for code generation. For each entry add a _param_ tag.
+
+### directories
+Other directories than _src/main/java_ and _src/test/java_ can be included in
+the scans with this configuration setting. For each entry add a _param_ tag.
+
+### scanTests
+By defaults the _src/test/java_ directory is also scanned, this can be switched
+of by specifying _false_ in this tag.
 
 ## References
 * Regular expression to scan for bidis was taken from https://github.com/nickboucher/bidi-viewer

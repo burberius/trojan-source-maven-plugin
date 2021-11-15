@@ -22,6 +22,15 @@
         <groupId>net.troja</groupId>
         <artifactId>trojan-source-maven-plugin</artifactId>
         <version>1.0-SNAPSHOT</version>
+        <configuration>
+          <fileExtensions>
+            <param>txt</param>
+          </fileExtensions>
+          <directories>
+            <param>demo</param>
+          </directories>
+          <scanTests>false</scanTests>
+        </configuration>
         <executions>
           <execution>
             <goals>

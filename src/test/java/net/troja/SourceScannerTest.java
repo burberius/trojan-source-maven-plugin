@@ -10,22 +10,23 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 @ExtendWith(MockitoExtension.class)
-class SourceAnalyzerTest {
+class SourceScannerTest {
 
-    public static final Path TEST_PATH = Paths.get("src/test/resources/project-to-test");
+    public static final Path TEST_PATH = Paths.get("src/test/resources/project-to-test/src/main/java");
     @Mock
     private Log log;
 
-    private SourceAnalyzer classToTest;
+    private SourceScanner classToTest;
 
     @BeforeEach
     void setUp() {
-        classToTest = new SourceAnalyzer(log);
+        classToTest = new SourceScanner(log);
     }
 
     @Test
@@ -36,14 +37,22 @@ class SourceAnalyzerTest {
 
     @Test
     void findFilesByFileExtension() throws IOException {
-        List<Path> files = classToTest.findFilesByFileExtension(TEST_PATH, "txt");
+        List<String> extensions = new ArrayList<>();
+        extensions.add("txt");
+
+        List<Path> files = classToTest.findFilesByFileExtension(TEST_PATH, extensions);
 
         assertThat(files).containsOnly(Paths.get("src/test/resources/project-to-test/src/main/java/project/test/SomeOtherFile.txt"));
     }
 
     @Test
     void findFilesWithBidi() {
-        List<String> filesWithBidi = classToTest.findFilesWithBidi(TEST_PATH, "java");
+        List<String> extensions = new ArrayList<>();
+        extensions.add("java");
+        List<Path> paths = new ArrayList<>();
+        paths.add(TEST_PATH);
+
+        List<String> filesWithBidi = classToTest.findFilesWithBidi(paths, extensions);
 
         assertThat(filesWithBidi).containsExactly("src/test/resources/project-to-test/src/main/java/project/test/CommentingOut.java");
     }
