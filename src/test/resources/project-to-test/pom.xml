@@ -4,7 +4,7 @@
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>net.troja</groupId>
+  <groupId>net.troja.maven</groupId>
   <artifactId>test-trojan-source-scan</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>jar</packaging>
@@ -19,7 +19,7 @@
   <build>
     <plugins>
       <plugin>
-        <groupId>net.troja</groupId>
+        <groupId>net.troja.maven</groupId>
         <artifactId>trojan-source-maven-plugin</artifactId>
         <version>1.0-SNAPSHOT</version>
         <configuration>
