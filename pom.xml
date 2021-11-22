@@ -31,7 +31,7 @@
 
     <scm>
         <connection>scm:git:git://github.com/burberius/trojan-source-maven-plugin.git</connection>
-        <developerConnection>scm:git:ssh://github.com:burberius/trojan-source-maven-plugin.git</developerConnection>
+        <developerConnection>scm:git:ssh://github.com/burberius/trojan-source-maven-plugin.git</developerConnection>
         <url>http://github.com/burberius/trojan-source-maven-plugin/tree/master</url>
     </scm>
 
