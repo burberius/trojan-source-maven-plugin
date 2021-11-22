@@ -1,4 +1,4 @@
-name: Release
+name: Publish to Maven Central
 
 on:
   release:
@@ -7,9 +7,8 @@ on:
 
 jobs:
   publish:
-    name: Publish on Sonatype OSS
+    name: Publish to Maven Central
     runs-on: ubuntu-latest
-    environment: Deploy to Maven Central
 
     steps:
       - name: Build with Maven

@@ -21,6 +21,7 @@ jobs:
         env:
           JAVA_HOME: /usr/lib/jvm/java-1.8-openjdk/
         with:
+          release-branch-name: "main"
           git-release-bot-name: "Release Bot"
           git-release-bot-email: "releasebot@troja.net"
           version-minor: true
