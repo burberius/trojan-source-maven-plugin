@@ -30,10 +30,9 @@
     </developers>
 
     <scm>
-        <connection>scm:git:${project.scm.url}</connection>
-        <developerConnection>scm:git:${project.scm.url}</developerConnection>
-        <url>git@github.com/burberius/trojan-source-maven-plugin.git</url>
-        <tag>HEAD</tag>
+        <connection>scm:git:git://github.com/burberius/trojan-source-maven-plugin.git</connection>
+        <developerConnection>scm:git:ssh://github.com/burberius/trojan-source-maven-plugin.git</developerConnection>
+        <url>http://github.com/burberius/trojan-source-maven-plugin</url>
     </scm>
 
     <prerequisites>
