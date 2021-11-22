@@ -1,15 +1,12 @@
 name: Release
 
 on:
-  release:
-    types: [ published ]
   workflow_dispatch:
 
 jobs:
   release:
-    name: Release on Sonatype OSS
+    name: Build release version
     runs-on: ubuntu-latest
-    environment: Deploy to Maven Central
 
     steps:
       - uses: actions/checkout@v2
@@ -19,21 +16,20 @@ jobs:
         with:
           java-version: 8
 
-      - name: Build with Maven
-        run: mvn -B package --file pom.xml
-
-      - name: Set up Apache Maven Central
-        uses: actions/setup-java@v1
-        with: # running setup-java again overwrites the settings.xml
-          java-version: 8
-          server-id: ossrh
-          server-username: OSSRH_USERNAME
-          server-password: OSSRH_PASSWORD
-          gpg-private-key: ${{ secrets.MAVEN_GPG_PRIVATE_KEY }}
-          gpg-passphrase: MAVEN_GPG_PASSPHRASE
-      - name: Publish to Apache Maven Central
-        run: mvn -Prelease deploy
+      - name: Create Release Version
+        uses: qcastel/github-actions-maven-release@master
         env:
-          OSSRH_USERNAME: ${{ secrets.OSSRH_USERNAME }}
-          OSSRH_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}
-          MAVEN_GPG_PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
+          JAVA_HOME: /usr/lib/jvm/java-1.8-openjdk/
+        with:
+          git-release-bot-name: "Release Bot"
+          git-release-bot-email: "releasebot@troja.net"
+          version-minor: true
+          maven-development-version-number: ${parsedVersion.majorVersion}.\${parsedVersion.nextMinorVersion}-SNAPSHOT
+
+          maven-args: "-Dmaven.javadoc.skip=true -DskipTests -Dmaven.deploy.skip=true"
+
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+          gpg-enabled: true
+          gpg-key-id: ${{ secrets.GPG_KEY_ID }}
+          gpg-key: ${{ secrets.GPG_KEY }}
