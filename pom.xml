@@ -5,7 +5,7 @@
 
     <groupId>net.troja</groupId>
     <artifactId>trojan-source-maven-plugin</artifactId>
-    <version>0.1</version>
+    <version>0.\2-SNAPSHOT</version>
     <packaging>maven-plugin</packaging>
 
     <name>Trojan Source Maven Plugin</name>
@@ -32,7 +32,7 @@
         <connection>scm:git:https://github.com/burberius/trojan-source-maven-plugin.git</connection>
         <developerConnection>scm:git:https://github.com/burberius/trojan-source-maven-plugin.git</developerConnection>
         <url>http://github.com/burberius/trojan-source-maven-plugin</url>
-      <tag>trojan-source-maven-plugin-0.1</tag>
+      <tag>HEAD</tag>
   </scm>
 
     <prerequisites>
