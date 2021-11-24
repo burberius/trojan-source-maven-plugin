@@ -30,8 +30,8 @@
     </developers>
 
     <scm>
-        <connection>scm:git:git://github.com/burberius/trojan-source-maven-plugin.git</connection>
-        <developerConnection>scm:git:ssh://github.com/burberius/trojan-source-maven-plugin.git</developerConnection>
+        <connection>scm:git:https://github.com/burberius/trojan-source-maven-plugin.git</connection>
+        <developerConnection>scm:git:https://github.com/burberius/trojan-source-maven-plugin.git</developerConnection>
         <url>http://github.com/burberius/trojan-source-maven-plugin</url>
     </scm>
 

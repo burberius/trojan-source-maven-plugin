@@ -50,7 +50,7 @@ the scans with this configuration setting. For each entry add a _param_ tag.
 
 ### scanTests
 By defaults the _src/test/java_ directory is also scanned, this can be switched
-of by specifying _false_ in this tag.
+off by specifying _false_ in this tag.
 
 ## References
 * Regular expression to scan for bidis was taken from https://github.com/nickboucher/bidi-viewer

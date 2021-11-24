@@ -29,7 +29,8 @@ jobs:
 
           maven-args: "-Dmaven.javadoc.skip=true -DskipTests -Dmaven.deploy.skip=true"
 
-          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+          access-token: ${{ secrets.ACCESS_TOKEN }}
+          #ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
           gpg-enabled: true
           gpg-key-id: ${{ secrets.GPG_KEY_ID }}
