@@ -47,11 +47,12 @@ public class TrojanSourceScanMojo extends AbstractMojo {
         Log log = getLog();
 
         SourceScanner analyzer = new SourceScanner(log);
-        List<String> filesWithBidi = analyzer.findFilesWithBidi(getPathsToScan(), getExtension());
+        List<Path> filesWithBidi = analyzer.findFilesWithBidi(getPathsToScan(), getExtension());
 
         if(!filesWithBidi.isEmpty()) {
             log.error("The following file(s) contain bidi characters, please check:");
-            filesWithBidi.forEach(file -> log.error(" * " + file));
+            Path basePath = basedir.toPath();
+            filesWithBidi.forEach(file -> log.error(" * " + basePath.relativize(file)));
             throw new MojoExecutionException("Possible trojan source found");
         } else {
             log.info("No trojan source found");

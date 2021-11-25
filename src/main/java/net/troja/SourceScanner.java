@@ -2,6 +2,7 @@ package net.troja;
 
 import org.apache.maven.plugin.logging.Log;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -23,8 +24,8 @@ public class SourceScanner {
         this.log = log;
     }
 
-    public List<String> findFilesWithBidi(Collection<Path> paths, Collection<String> extensions) {
-        List<String> filesWithBidi = new ArrayList<>();
+    public List<Path> findFilesWithBidi(Collection<Path> paths, Collection<String> extensions) {
+        List<Path> filesWithBidi = new ArrayList<>();
         for (Path currentPath : paths) {
             if(!Files.isDirectory(currentPath)) {
                 log.warn("Path '" + currentPath + "' is not valid");
@@ -36,7 +37,7 @@ public class SourceScanner {
                     log.debug("Checking file " + file.toString());
                     boolean isBidi = Files.readAllLines(file).stream().map(this::isClean).anyMatch(aBoolean -> !aBoolean);
                     if (isBidi) {
-                        filesWithBidi.add(file.toString());
+                        filesWithBidi.add(file);
                     }
                 }
             } catch (IOException e) {

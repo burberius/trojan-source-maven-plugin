@@ -52,8 +52,9 @@ class SourceScannerTest {
         List<Path> paths = new ArrayList<>();
         paths.add(TEST_PATH);
 
-        List<String> filesWithBidi = classToTest.findFilesWithBidi(paths, extensions);
+        List<Path> filesWithBidi = classToTest.findFilesWithBidi(paths, extensions);
 
-        assertThat(filesWithBidi).containsExactly("src/test/resources/project-to-test/src/main/java/project/test/CommentingOut.java");
+        assertThat(filesWithBidi).hasSize(1);
+        assertThat(filesWithBidi.get(0).toString()).endsWith("project/test/CommentingOut.java");
     }
 }
