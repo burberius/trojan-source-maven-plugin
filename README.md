@@ -17,7 +17,7 @@ just add the following section to your _pom.xml_ file:
     <plugin>
       <groupId>net.troja</groupId>
       <artifactId>trojan-source-maven-plugin</artifactId>
-      <version>1.0-SNAPSHOT</version>
+      <version>1.0</version>
       <configuration>
         <fileExtensions>
           <param>mustache</param>
