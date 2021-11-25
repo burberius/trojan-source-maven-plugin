@@ -197,7 +197,35 @@
                 <configuration>
                     <scmCommentPrefix>[CI]</scmCommentPrefix>
                     <tagNameFormat>@{project.version}</tagNameFormat>
+                    <preparationGoals>resources:copy-resources</preparationGoals>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.2.0</version>
+                <configuration>
+                    <outputDirectory>${project.basedir}</outputDirectory>
+                    <overwrite>true</overwrite>
+                    <resources>
+                        <resource>
+                            <directory>doc</directory>
+                            <includes>
+                                <include>README.md</include>
+                            </includes>
+                            <filtering>true</filtering>
+                        </resource>
+                    </resources>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>readme-md</id>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
